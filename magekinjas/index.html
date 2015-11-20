@@ -1,0 +1,310 @@
+<!DOCTYPE HTML5>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="modified" content="20141203" />
+    <title>Magekinjas</title>
+    <style type="text/css">
+      h1 
+      {
+         font-family: Arial, sans-serif;
+         font-size: 36pt;
+         line-height: 110%;
+         font-weight: 800;
+         color: black;
+         text-align: left; 
+         vertical-align: bottom;
+         background: transparent;
+         margin: 10px 0 10px 15px;
+      }
+      #buttpanel
+      {
+          font: bold 24pt sans;
+          border: solid black 2px;
+          padding: 10px;
+          width: 170px;
+      }
+      #sideitems
+      {
+          font: bold 24pt sans;
+          border: solid black 2px;
+          padding: 10px;
+          width: 150px;
+      }
+      p1
+      {
+         font-family: Arial, sans-serif;
+         font-size: 10pt;
+         margin: 0px 0 0px 0px;
+      }
+ 
+      #container { position: relative; margin-top: 100; margin-left: 10;}
+      #drawArea { border: 1px  solid #000;}
+
+      #buttpanel  { position: relative; }
+      #set     {position: relative; font-size: 2.0em; width: 100px; height: 100px;}
+      #text    {position: relative; font-size: 1.5em; width: 900px; height: 100px;}
+      #report  {position: relative; font-size: 1.0em; width: 900px; height: 100px;}
+      #report1 {position: relative; font-size: 1.0em; width: 450px; height: 100px;}
+      #report2 {position: relative; font-size: 1.0em; width: 450px; height: 100px;}
+
+      #IDPanel     { position: relative; }
+      #pickID  {position: relative; font-size: 2.0em; width: 400px; height: 100px;}
+      #distID  {position: relative; font-size: 2.0em; width: 150px; height: 100px;}
+      #angleID {position: relative; font-size: 2.0em; width: 150px; height: 100px;}
+      #dhdrlID {position: relative; font-size: 2.0em; width: 150px; height: 100px;}
+      #bottomPanel { position: relative; }
+
+      #cursored {position: relative; font-size: 1.5em; width: 130px; height: 100px;}
+      #zoomin   {position: relative; font-size: 1.5em; width: 100px; height: 100px;}
+      #zclipin  {position: relative; font-size: 1.5em; width: 100px; height: 100px;}
+      #viewtool {position: relative; font-size: 1.5em; width: 130px; height:  50px;}
+      #bkgtool  {position: relative; font-size: 1.5em; width: 130px; height:  50px;}
+      #pickctr  {position: relative; font-size: 1.5em; width: 130px; height: 100px;}      
+      #markers  {position: relative; font-size: 1.5em; width: 130px; height: 100px;}
+      #marktool {position: relative; font-size: 1.5em; width: 130px; height:  50px;}
+      #rocker   {position: relative; font-size: 1.5em; width: 130px; height: 100px;}
+      #animate  {position: relative; font-size: 1.5em; width: 130px; height: 100px;}
+
+      #kintool  {position: relative; font-size: 1.5em; width: 130px; height:  50px;}
+      #newtool  {position: relative; font-size: 1.5em; width: 150px; height:  50px;}
+
+      #testbutton {position: relative; font-size: 1.5em; width: 130px; height: 100px;}
+      
+
+      
+    </style>
+<link  rel = "kinInput" type="text/html" href="kinInput.html" />
+  </head>
+
+  <body>  
+
+    <div>
+      <table>
+        <tr> 
+          <td>
+            <!-- container div establishes drawArea as bounds for its mouse events -->
+            <div id="container"> 
+              <canvas id="drawArea" width="800" height="800">
+                <p>alt== Your browser does not seem to support canvas</p>
+              </canvas>
+            </div>
+          </td>
+          <td>
+            <div id="buttpanel"> 
+<p1>Magekinjas</p1>
+              <form name="sets" >
+                <fieldset id="sideitems" ><legend></legend>
+<input type="hidden" name="setts" value="dummy" id="onoff" />
+                </fieldset>
+              </form>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+
+
+    <div id="IDPanel"> 
+      <table>
+        <tr>
+
+         <td width = "400">
+          <label id="pickID">...</label>
+         </td>
+         <td width = "150">
+          <label id="distID">...</label>
+         </td>
+         <td width = "150">
+          <label id="angleID"></label>
+         </td>
+         <td width = "150">
+          <label id="dhdrlID"></label>
+         </td>
+
+        </tr>
+      </table>
+    </div>
+
+
+    <div id="bottomPanel"> 
+      <table>
+        <tr>
+
+          <td>
+            <p>
+              <input type=button value="(cursor)" id="cursored" />
+            </p>
+          </td
+
+          <td>
+            <p>
+              zoom(1.0)<input type=text value="1.0" id="zoomin" /> on-screen slider
+            </p>
+          </td
+
+          <td>
+            <p>
+              zclip(400)<input type=text value="400" id="zclipin" />
+            </p>
+          </td
+
+          <td>
+           
+            <p>
+              <label id="viewlbl" value="foobar"> view:
+                <select id="viewtool">
+                  <option value="front">View 1</option>
+                  <option value="2">View 2</option>
+                  <option value="3">View 3</option>
+                  <option value="4">View 4</option>
+                  <option value="5">View 5</option>
+                  <option value="6">View 6</option>
+                  <option value="7">View 7</option>
+                  <option value="8">View 8</option>
+                  <option value="9">View 9</option>
+
+                </select>
+              </label>
+            </p>
+           
+           
+            <p>
+              <label> 
+                <select id="bkgtool">
+                  <option value="WhtBkg">White bkg</option>
+                  <option value="BlkBkg">Black bkg</option>
+                </select>
+              </label>
+            </p>
+           
+          </td
+
+          <td>
+            <p>
+              <input type=button value="pick center" id="pickctr" />
+            </p>
+          </td
+
+          <td>
+            <p>
+              <label>
+                <select id="marktool">
+                  <option value="1">(markers)</option>
+                  <option value="2">MARKERS</option>
+                  <option value="3">MEASURE</option>
+                </select>
+              </label>
+
+            </p>
+          </td
+
+          <td>
+            <p>
+              <input type=button value="(rock)" id="rocker" />
+            </p>
+          </td
+
+          <td>
+            <p>
+              <input type=button value="animate" id="animate" />
+            </p>
+          </td
+        
+        </tr
+      </table>
+    </div>
+
+    <div id="choicePanel"> 
+      <table>
+        <tr>
+
+          <td>
+           
+            <p>
+              <label id="filenames"> File:
+                <select id="kintool">
+                  <option value="edgeWidget.kin">edgeWidget.kin</option>
+                  <option value="2SOD.ribbon.kin">2SOD.ribbbon.kin</option>
+                  <option value="CPAkin.kin">CPAkin.kin</option>
+                   <option value="widgetTDKmkj.kin">widgetTDKmkj.kin</option>                 
+                </select>
+              </label>
+            </p>
+           
+           
+            <p>
+              <label> 
+                <select id="newtool">
+                  <option value="Open As New File">Open As New File</option>
+                  <option value="Append File">Append File</option>
+                </select>
+              </label>
+            </p>
+           
+          </td
+          <td>
+              <input type=button value="DOWNLOAD" id="testbutton" />
+          </td>
+
+        </tr
+      </table>
+    </div>
+
+
+    <div>
+     <table>
+      <tr>
+      <td width = "900" font-size: 2.0em;>
+          <label id="text">...</label> 
+      </td>
+      </tr>
+     </table>
+    </div>
+
+    <div>
+      <table>
+        <tr>
+          <td width = "900">
+            <label id="report">...</label>
+          </td>
+        </tr>
+        <tr>
+          <td width = "450">
+            <label id="report1">...</label>
+          </td>
+          <td width = "450">
+            <label id="report2">...</label>
+          </td>
+        </tr>
+      </table> 
+    </div>
+
+    <script type="text/javascript" src="magekinjasMain.js"></script>
+    <script type="text/javascript" src="magekinjasAction.js"></script>
+    <script type="text/javascript" src="magekinjasPalette.js"></script>
+    <script type="text/javascript" src="magekinjasMarker.js"></script>
+    <script type="text/javascript" src="magekinjasButtons.js"></script>
+    <script type="text/javascript" src="magekinjasInputKin.js"></script>
+    <script type="text/javascript" src="magekinjasCursor.js"></script>
+    <script type="text/javascript" src="magekinjasRotMatrix.js"></script>
+<!-- <script type="text/javascript" src="Cpakin.kin.js"></script> -->
+ <script type="text/javascript" src="edgeWidget.kin.js"></script> 
+<!-- <script type="text/javascript" src="kinInput.js"></script>  -->
+<!-- <script type="text/javascript" src="Cpakin.js"></script> --> 
+<!-- <script type="text/javascript" src="2SODO.ribfrag.js"></script>  -->
+<!-- <script type="text/javascript" src="2SODO.ribbonkin.js"></script> -->
+<!-- <script type="text/javascript" src="2SODO.100-112.js"></script>  -->
+<!-- <script type="text/javascript" src="2SODO.ribfragN.js"></script>  -->
+
+    <script type="text/javascript">
+      function doAutoRock() //in document first file so timer can find it
+      {
+         actualRock();
+      }
+    </script>
+
+
+  </body>
+</html>
